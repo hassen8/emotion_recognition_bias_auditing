@@ -1,4 +1,3 @@
-# Smile ≠ Happy  
 ## Auditing Emotion Recognition Bias Against Neurodiverse Individuals
 
 Emotion recognition systems are increasingly used in hiring, education, and healthcare. However, most of these models are trained on **neurotypical facial expressions**, which can lead to systematic misclassification or exclusion of **neurodivergent individuals**, particularly those on the autism spectrum.
@@ -24,7 +23,6 @@ This project audits the **fairness, robustness, and ethical risks** of facial em
 - EmotioNet  
 
 ### Models Evaluated
-- FER+  
 - DeepFace  
 - EmotiEffLib 
 
@@ -35,11 +33,12 @@ All evaluations are performed on **unaltered, real-world images** to reflect rea
 ## Evaluation Methodology
 
 ### Performance and Reliability
-- Top-1 and Top-k accuracy  
+- Top-1 and Top-3 accuracy  
 - Per-class F1-score  
 - Expected Calibration Error (ECE)  
 - Reliability diagrams  
-
+- Confusion Matrices
+  
 ### Explainability and Robustness
 - Grad-CAM for visual attention analysis  
 - Occlusion sensitivity testing (eyes, mouth, nose regions)  
@@ -53,12 +52,9 @@ All evaluations are performed on **unaltered, real-world images** to reflect rea
 ---
 
 ## Repository_structure:
-  - data/
-  - models/
-  - explainability/
-  - evaluation/
   - notebooks/
-  - audit_checklist/
+    - qualitative_analysis/
+    - quantitative_analysis/
   - report/
   - README.md
 
@@ -87,5 +83,3 @@ Emotion recognition models influence real decisions about people.
 If a system cannot handle expression diversity, it should not be trusted in high-stakes settings.
 
 This project focuses on **auditing, explainability and accountability**, not on building new emotion classifiers.
-
-

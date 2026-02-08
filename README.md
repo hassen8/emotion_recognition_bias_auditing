@@ -20,7 +20,8 @@ This project audits the **fairness, robustness, and ethical risks** of facial em
 ### Datasets
 - RAF-DB  
 - AffectNet  
-- EmotioNet  
+- FER-2013
+- FER-Autism  
 
 ### Models Evaluated
 - DeepFace  
@@ -55,7 +56,7 @@ All evaluations are performed on **unaltered, real-world images** to reflect rea
   - notebooks/
     - qualitative_analysis/
     - quantitative_analysis/
-  - report/
+  - report
   - README.md
 
 

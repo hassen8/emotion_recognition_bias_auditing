@@ -1,4 +1,7 @@
 ## Auditing Emotion Recognition Bias Against Neurodiverse Individuals
+> A fairness audit of commercial and open-source emotion recognition systems, examining systematic bias against neurodiverse individuals — grounded in EU Trustworthy AI guidelines.
+---
+## Motivation
 
 Emotion recognition systems are increasingly used in hiring, education, and healthcare. However, most of these models are trained on **neurotypical facial expressions**, which can lead to systematic misclassification or exclusion of **neurodivergent individuals**, particularly those on the autism spectrum.
 
@@ -18,16 +21,18 @@ This project audits the **fairness, robustness, and ethical risks** of facial em
 ## Models and Datasets
 
 ### Datasets
-- RAF-DB  
-- AffectNet  
-- FER-2013
-- FER-Autism  
+| Dataset | Description |
+|---------|-------------|
+| RAF-DB | Real-world affective faces, 7 basic emotions |
+| AffectNet | Large-scale annotated facial affect |
+| FER-2013 | Benchmark facial expression recognition |
+| FER-Autism | Facial expressions from autistic individuals |
 
 ### Models Evaluated
-- DeepFace  
-- EmotiEffLib 
-
-All evaluations are performed on **unaltered, real-world images** to reflect realistic deployment conditions.
+| Model | Type |
+|-------|------|
+| DeepFace | Deep CNN ensemble |
+| EmotiEffLib | EfficientNet-based |
 
 ---
 
@@ -51,18 +56,26 @@ All evaluations are performed on **unaltered, real-world images** to reflect rea
 - Identification of risks related to exclusion, misrepresentation, and misuse  
 
 ---
+## Key Findings
+
+- Both models show measurable accuracy drops on the FER-Autism dataset compared to neurotypical benchmarks
+- Grad-CAM analysis reveals that models frequently attend to mouth and eye regions — features that are expressed atypically in many neurodiverse individuals
+- Calibration error increases significantly on neurodiverse samples, indicating overconfident misclassifications
+- A systematic bias risk was identified for deployment in hiring and education contexts
+
+---
 
 ## Repository_structure:
   - notebooks/
-    - qualitative_analysis/
-    - quantitative_analysis/
-  - report
+    - qualitative_analysis/      # Grad-CAM, occlusion, LIME notebooks
+    - quantitative_analysis/     # Accuracy, F1, ECE evaluation notebooks
+  - report                       # Full technical report
   - README.md
 
 
 ---
 
-## Deliverables
+## Output
 
 - Final report (PDF)  
 - Reproducible evaluation and explainability code  
@@ -77,10 +90,3 @@ All evaluations are performed on **unaltered, real-world images** to reflect rea
 - **Hilina Fissha Woreta** – Ethical analysis and auditing checklist  
 
 ---
-
-## Motivation
-
-Emotion recognition models influence real decisions about people.  
-If a system cannot handle expression diversity, it should not be trusted in high-stakes settings.
-
-This project focuses on **auditing, explainability and accountability**, not on building new emotion classifiers.
